@@ -1,15 +1,18 @@
 body {
     font-family: Arial, sans-serif;
-    background-color: #f5f5f5;
+    background-color: #ebe8e8;
 }
 
 .container {
-    max-width: 400px;
+    width:90%;
+    max-width: 500px;
     margin: 0 auto;
     padding: 20px;
+    background: linear-gradient(135deg,#00feba,#5b548a);
     border-radius: 8px;
     background-color: #ffffff;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+    text-align: center;
 }
 
 h1 {
@@ -27,19 +30,118 @@ h1 {
     flex: 1;
     padding: 8px;
     border: 1px solid #ccc;
-    border-radius: 4px;
+    border-radius: 30px;
+    height: 20px;
 }
 
 #searchBtn {
-    margin-left: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     padding: 8px 16px;
     border: none;
-    border-radius: 4px;
-    background-color: #007bff;
-    color: #ffffff;
+    border-radius: 30px;
+    background-color: #ebfffc;
+    color: black;
     cursor: pointer;
+    font-size: 16px;
+  }
+  
+  #searchBtn img {
+    margin-right: 5px;
+    width: 20px;
+    height: 20px;
+    vertical-align: middle;
+  }
+  
+
+.weather-icon{
+    width: 170px;
+    margin-top:30px;
 }
 
+.weather h1{
+    font-size:80px;
+    font-weight:50;
+}
+
+
+.weather h2{
+    font-size:45px;
+    font-weight: 400;
+    margin-top:-20px;
+}
+
+.details{
+    display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding:0 20px;
+      margin-top: 50px;
+}
+.col{
+    display: flex;
+    align-items: center;
+    text-align: left;
+
+}
+
+.col img{
+    width: 40px;
+    margin-right: 10px;
+}
+.humidity, .wind{
+    font-size: 28px;
+    margin-top:-6px;
+
+}
 #weatherInfo {
     font-size: 18px;
+}
+
+
+/* Add this at the bottom of your styles.css */
+.toggle-container {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.toggle-label {
+    position: relative;
+    display: inline-block;
+    width: 40px;
+    height: 20px;
+}
+
+.slider {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.4s;
+}
+
+.slider:before {
+    content: "";
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background-color: white;
+    top: 2px;
+    left: 2px;
+    transition: 0.4s;
+}
+
+input[type="checkbox"]:checked + .slider {
+    background-color: #007bff;
+}
+
+input[type="checkbox"]:checked + .slider:before {
+    transform: translateX(20px);
 }
