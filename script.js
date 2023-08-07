@@ -4,7 +4,7 @@ const searchBtn = document.getElementById('searchBtn');
 const locationInput = document.getElementById('locationInput');
 const weatherInfoDiv = document.getElementById('weatherInfo');
 const weatherIcon = document.querySelector('.weather-icon');
-
+const weather= document.querySelector('.weather');
 
 searchBtn.addEventListener('click', () => {
     const location = locationInput.value.trim();
@@ -28,6 +28,8 @@ async function getWeatherData(location) {
 }
 
 function displayWeatherData(data) {
+    weather.style.display= 'block';
+    weatherInfoDiv.style.display='none';
     const location = `${data.name}, ${data.sys.country}`;
     const temperature = `${data.main.temp} °C`;
     const description = data.weather[0].main;
@@ -62,25 +64,28 @@ function displayWeatherData(data) {
 
 function displayError(errorMessage) {
     weatherInfoDiv.innerHTML = `<p class="error">${errorMessage}</p>`;
+    weather.style.display= 'none';
+    weatherInfoDiv.style.display='block';
+
 }
 
 
 
 
-const unitToggle = document.getElementById('unitToggle');
-const unitLabel = document.getElementById('unitLabel');
+// const unitToggle = document.getElementById('unitToggle');
+// const unitLabel = document.getElementById('unitLabel');
 
-let isCelsius = true; // Default to Celsius
+// let isCelsius = true; // Default to Celsius
 
-unitToggle.addEventListener('change', () => {
-    isCelsius = !isCelsius;
-    updateTemperature();
-});
+// unitToggle.addEventListener('change', () => {
+//     isCelsius = !isCelsius;
+//     updateTemperature();
+// });
 
-function updateTemperature() {
-    const temperature = parseFloat(document.querySelector('.temp').textContent);
-    const updatedTemperature = isCelsius ? temperature : (temperature * 9/5) + 32;
-    const unitText = isCelsius ? 'Celsius' : 'Fahrenheit';
-    unitLabel.textContent = unitText;
-    document.querySelector('.temp').textContent = updatedTemperature.toFixed(2);
-}
+// function updateTemperature() {
+//     const temperature = parseFloat(document.querySelector('.temp').textContent);
+//     const updatedTemperature = isCelsius ? temperature : (temperature * 9/5) + 32;
+//     const unitText = isCelsius ? 'Celsius' : 'Fahrenheit';
+//     unitLabel.textContent = unitText;
+//     document.querySelector('.temp').textContent = updatedTemperature.toFixed(2);
+// }
